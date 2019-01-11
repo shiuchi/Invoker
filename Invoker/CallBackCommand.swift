@@ -10,7 +10,7 @@ import Foundation
 
 public class CallbackCommand<T, U> {
     weak public var receiver: CommandReceiver?
-    public var excuting: Bool = false
+    public var isExcuting: Bool = false
     private let handler: (T) -> (U)
     private let params: T
     

@@ -11,7 +11,7 @@ import Foundation
 public protocol Command: class {
     func execute()
     var receiver: CommandReceiver? { get set }
-    var excuting: Bool { get }
+    var isExcuting: Bool { get }
     var id: ObjectIdentifier { get }
 }
 
@@ -30,7 +30,7 @@ public protocol CommandInvoker {
 }
 
 
-extension Array {
+internal extension Array {
     
     @discardableResult
     mutating func pop() -> Element? {

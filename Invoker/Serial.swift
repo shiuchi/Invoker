@@ -2,7 +2,7 @@
 //  Serial.swift
 //  Invoker
 //
-//  Created by 志内 幸彦 on 2018/12/18.
+//  Created by shiuchi on 2018/12/18.
 //  Copyright © 2018年 shiuchi. All rights reserved.
 //
 
@@ -12,6 +12,7 @@ public final class Serial {
     private var commands: [Command] = []
     public weak var receiver: CommandReceiver?
     private(set) public var isExcuting: Bool = false
+    private var isCancelled: Bool = false
     
     public init() {
     }
@@ -36,14 +37,29 @@ extension Serial: Command {
 }
 
 extension Serial: CommandInvoker {
-    public func add(_ command: Command) {
+    @discardableResult public func add(_ command: Command) -> Serial {
         commands.append(command)
+        return self
+    }
+    
+    @discardableResult public func add(_ commands: [Command]) -> Serial {
+        self.commands.append(contentsOf: commands)
+        return self
+    }
+    
+    public func release() {
+        isCancelled = true
+        commands.removeAll()
     }
 }
 
 extension Serial: CommandReceiver {
     
     public func onComplete(_ command: Command) {
+        if isCancelled {
+            return
+        }
+        
         commands.pop()
         if commands.isEmpty {
             isExcuting = false

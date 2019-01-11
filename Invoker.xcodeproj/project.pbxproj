@@ -21,6 +21,7 @@
 		9D08D22A21C8DC810058E5BB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9D08D22921C8DC810058E5BB /* Assets.xcassets */; };
 		9D08D22D21C8DC810058E5BB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9D08D22B21C8DC810058E5BB /* LaunchScreen.storyboard */; };
 		9D08D23321C8DCA30058E5BB /* Invoker.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9D08D1C421C8D1B90058E5BB /* Invoker.framework */; };
+		F4EFB25121E8729900173ED4 /* AnimateCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4EFB25021E8729900173ED4 /* AnimateCommand.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -52,6 +53,7 @@
 		9D08D22921C8DC810058E5BB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		9D08D22C21C8DC810058E5BB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		9D08D22E21C8DC810058E5BB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F4EFB25021E8729900173ED4 /* AnimateCommand.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimateCommand.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -112,6 +114,7 @@
 				9D08D1E221C8D2380058E5BB /* Parallel.swift */,
 				9D08D1E421C8D5380058E5BB /* WaitCommand.swift */,
 				9D08D1E621C8D5CD0058E5BB /* CallBackCommand.swift */,
+				F4EFB25021E8729900173ED4 /* AnimateCommand.swift */,
 			);
 			path = Invoker;
 			sourceTree = "<group>";
@@ -287,6 +290,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9D08D1DF21C8D1E40058E5BB /* Invoker.swift in Sources */,
+				F4EFB25121E8729900173ED4 /* AnimateCommand.swift in Sources */,
 				9D08D1E321C8D2380058E5BB /* Parallel.swift in Sources */,
 				9D08D1E521C8D5380058E5BB /* WaitCommand.swift in Sources */,
 				9D08D1E721C8D5CD0058E5BB /* CallBackCommand.swift in Sources */,

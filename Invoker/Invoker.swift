@@ -2,7 +2,7 @@
 //  Invoker.swift
 //  Invoker
 //
-//  Created by 志内 幸彦 on 2018/12/18.
+//  Created by shiuchi on 2018/12/18.
 //  Copyright © 2018年 shiuchi. All rights reserved.
 //
 
@@ -26,9 +26,10 @@ public protocol CommandReceiver: class {
 }
 
 public protocol CommandInvoker {
-    func add(_ command: Command)
+    func add(_ command: Command) -> Self
+    func add(_ commands: [Command]) -> Self
+    func release()
 }
-
 
 internal extension Array {
     

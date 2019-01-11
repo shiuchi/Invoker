@@ -2,7 +2,7 @@
 //  Invoker.h
 //  Invoker
 //
-//  Created by 志内 幸彦 on 2018/12/18.
+//  Created by shiuchi on 2018/12/18.
 //  Copyright © 2018年 shiuchi. All rights reserved.
 //
 

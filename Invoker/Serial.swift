@@ -11,7 +11,7 @@ import Foundation
 public final class Serial {
     private var commands: [Command] = []
     public weak var receiver: CommandReceiver?
-    private(set) public var excuting: Bool = false
+    private(set) public var isExcuting: Bool = false
     
     public init() {
     }
@@ -20,14 +20,14 @@ public final class Serial {
 extension Serial: Command {
     
     public func execute() {
-        guard !excuting, !commands.isEmpty else {
+        guard !isExcuting, !commands.isEmpty else {
             return
         }
         _execute()
     }
     
     private func _execute() {
-        excuting = true
+        isExcuting = true
         if let command = commands.first {
             command.receiver = self
             command.execute()
@@ -46,7 +46,7 @@ extension Serial: CommandReceiver {
     public func onComplete(_ command: Command) {
         commands.pop()
         if commands.isEmpty {
-            excuting = false
+            isExcuting = false
             receiver?.onComplete(self)
         } else {
             _execute()

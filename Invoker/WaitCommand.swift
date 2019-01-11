@@ -11,7 +11,7 @@ import Foundation
 
 public class WaitCommand: Command {
     weak public var receiver: CommandReceiver?
-    public var excuting: Bool = false
+    public var isExcuting: Bool = false
     private let delay: Double
     
     public init(_ delay: Double) {
@@ -19,10 +19,10 @@ public class WaitCommand: Command {
     }
     
     public func execute() {
-        excuting = true
+        isExcuting = true
         DispatchQueue.main.asyncAfter(deadline: .now() + delay) { [weak self] in
             guard let self = self else { return }
-            self.excuting = false
+            self.isExcuting = false
             self.receiver?.onComplete(self)
         }
     }

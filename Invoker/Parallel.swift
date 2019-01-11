@@ -11,7 +11,7 @@ import Foundation
 
 public final class Parallel {
     private var commands: [Command] = []
-    private(set) public var excuting: Bool = false
+    private(set) public var isExcuting: Bool = false
     public weak var receiver: CommandReceiver?
     
     public init() {
@@ -20,7 +20,7 @@ public final class Parallel {
 
 extension Parallel: Command {
     public func execute() {
-        guard !excuting, !commands.isEmpty else {
+        guard !isExcuting, !commands.isEmpty else {
             return
         }
         
@@ -28,7 +28,7 @@ extension Parallel: Command {
     }
     
     private func _execute() {
-        excuting = true
+        isExcuting = true
         commands.forEach { command in
             command.receiver = self
             command.execute()
@@ -41,7 +41,7 @@ extension Parallel: CommandReceiver {
     public func onComplete(_ command: Command) {
         commands.removeAll(where: {command.id == $0.id})
         if commands.isEmpty {
-            excuting = false
+            isExcuting = false
             receiver?.onComplete(self)
         }
     }

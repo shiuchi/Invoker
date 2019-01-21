@@ -2,15 +2,12 @@
 //  CallBackCommand.swift
 //  Invoker
 //
-//  Created by 志内 幸彦 on 2018/12/18.
+//  Created by shiuchi on 2018/12/18.
 //  Copyright © 2018年 shiuchi. All rights reserved.
 //
 
-import Foundation
-
 public class CallbackCommand<T, U> {
     weak public var receiver: CommandReceiver?
-    public var isExcuting: Bool = false
     private let handler: (T) -> (U)
     private let params: T
     
@@ -27,6 +24,4 @@ extension CallbackCommand: Command {
         _ = handler(params)
         receiver?.onComplete(self)
     }
-    
-    
 }

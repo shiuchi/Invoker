@@ -2,16 +2,12 @@
 //  WaitCommand.swift
 //  Invoker
 //
-//  Created by 志内 幸彦 on 2018/12/18.
+//  Created by shiuchi on 2018/12/18.
 //  Copyright © 2018年 shiuchi. All rights reserved.
 //
 
-import Foundation
-
-
 public class WaitCommand: Command {
     weak public var receiver: CommandReceiver?
-    public var isExcuting: Bool = false
     private let delay: Double
     
     public init(_ delay: Double) {
@@ -19,10 +15,8 @@ public class WaitCommand: Command {
     }
     
     public func execute() {
-        isExcuting = true
         DispatchQueue.main.asyncAfter(deadline: .now() + delay) { [weak self] in
             guard let self = self else { return }
-            self.isExcuting = false
             self.receiver?.onComplete(self)
         }
     }

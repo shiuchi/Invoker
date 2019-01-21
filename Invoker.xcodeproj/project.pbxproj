@@ -14,7 +14,7 @@
 		9D08D1E121C8D2150058E5BB /* Serial.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D08D1E021C8D2150058E5BB /* Serial.swift */; };
 		9D08D1E321C8D2380058E5BB /* Parallel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D08D1E221C8D2380058E5BB /* Parallel.swift */; };
 		9D08D1E521C8D5380058E5BB /* WaitCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D08D1E421C8D5380058E5BB /* WaitCommand.swift */; };
-		9D08D1E721C8D5CD0058E5BB /* CallBackCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D08D1E621C8D5CD0058E5BB /* CallBackCommand.swift */; };
+		9D08D1E721C8D5CD0058E5BB /* CallbackCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D08D1E621C8D5CD0058E5BB /* CallbackCommand.swift */; };
 		9D08D22321C8DC800058E5BB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D08D22221C8DC800058E5BB /* AppDelegate.swift */; };
 		9D08D22521C8DC800058E5BB /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D08D22421C8DC800058E5BB /* ViewController.swift */; };
 		9D08D22821C8DC800058E5BB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9D08D22621C8DC800058E5BB /* Main.storyboard */; };
@@ -45,7 +45,7 @@
 		9D08D1E021C8D2150058E5BB /* Serial.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Serial.swift; sourceTree = "<group>"; };
 		9D08D1E221C8D2380058E5BB /* Parallel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Parallel.swift; sourceTree = "<group>"; };
 		9D08D1E421C8D5380058E5BB /* WaitCommand.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaitCommand.swift; sourceTree = "<group>"; };
-		9D08D1E621C8D5CD0058E5BB /* CallBackCommand.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CallBackCommand.swift; sourceTree = "<group>"; };
+		9D08D1E621C8D5CD0058E5BB /* CallbackCommand.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CallbackCommand.swift; sourceTree = "<group>"; };
 		9D08D22021C8DC800058E5BB /* InvokerDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = InvokerDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9D08D22221C8DC800058E5BB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9D08D22421C8DC800058E5BB /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -113,7 +113,7 @@
 				9D08D1E021C8D2150058E5BB /* Serial.swift */,
 				9D08D1E221C8D2380058E5BB /* Parallel.swift */,
 				9D08D1E421C8D5380058E5BB /* WaitCommand.swift */,
-				9D08D1E621C8D5CD0058E5BB /* CallBackCommand.swift */,
+				9D08D1E621C8D5CD0058E5BB /* CallbackCommand.swift */,
 				F4EFB25021E8729900173ED4 /* AnimateCommand.swift */,
 			);
 			path = Invoker;
@@ -293,7 +293,7 @@
 				F4EFB25121E8729900173ED4 /* AnimateCommand.swift in Sources */,
 				9D08D1E321C8D2380058E5BB /* Parallel.swift in Sources */,
 				9D08D1E521C8D5380058E5BB /* WaitCommand.swift in Sources */,
-				9D08D1E721C8D5CD0058E5BB /* CallBackCommand.swift in Sources */,
+				9D08D1E721C8D5CD0058E5BB /* CallbackCommand.swift in Sources */,
 				9D08D1E121C8D2150058E5BB /* Serial.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

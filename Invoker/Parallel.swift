@@ -6,14 +6,11 @@
 //  Copyright © 2018年 shiuchi. All rights reserved.
 //
 
-import Foundation
-
-
 public final class Parallel {
     private var commands: [Command] = []
     private(set) public var isExcuting: Bool = false
+    private (set) public var isSuspended: Bool = false
     public weak var receiver: CommandReceiver?
-    private var isCancelled: Bool = false
     
     public init() {
     }
@@ -21,36 +18,26 @@ public final class Parallel {
 
 extension Parallel: Command {
     public func execute() {
-        guard !isExcuting, !commands.isEmpty else {
+        guard !isExcuting else {
             return
         }
         
+        if commands.isEmpty {
+            complete()
+            return
+        }
+        
+        isExcuting = true
         _execute()
     }
     
     private func _execute() {
-        isExcuting = true
+        guard isExcuting else { return }
         commands.forEach { command in
             command.receiver = self
             command.execute()
         }
     }
-}
-
-extension Parallel: CommandReceiver {
-    
-    public func onComplete(_ command: Command) {
-        if isCancelled {
-            return
-        }
-        
-        commands.removeAll(where: {command.id == $0.id})
-        if commands.isEmpty {
-            isExcuting = false
-            receiver?.onComplete(self)
-        }
-    }
-    
 }
 
 extension Parallel: CommandInvoker {
@@ -64,7 +51,34 @@ extension Parallel: CommandInvoker {
         return self
     }
     
-    public func release() {
+    public func cancel() {
+        isExcuting = false
         commands.removeAll()
+    }
+    
+    
+    /// Parallel does not support this function
+    public func suspend() {
+    }
+    
+    /// Parallel does not support this function
+    public func resume() {
+    }
+}
+
+extension Parallel: CommandReceiver {
+    
+    public func onComplete(_ command: Command) {
+        guard isExcuting else { return }
+        
+        commands.removeAll(where: {command.id == $0.id})
+        if commands.isEmpty {
+            complete()
+        }
+    }
+    
+    private func complete() {
+        isExcuting = false
+        receiver?.onComplete(self)
     }
 }

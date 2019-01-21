@@ -10,7 +10,6 @@ import UIKit
 
 public class AnimateCommand: Command {
     weak public var receiver: CommandReceiver?
-    private(set) public var isExcuting: Bool = false
     private var animations: () -> Void
     private var duration: TimeInterval
     private var delay: TimeInterval
@@ -32,7 +31,6 @@ public class AnimateCommand: Command {
     }
     
     public func execute() {
-        isExcuting = true
         UIView.animate(
             withDuration: duration,
             delay: delay,
@@ -40,7 +38,6 @@ public class AnimateCommand: Command {
             animations: animations,
             completion: { [weak self] success in
                 guard let self = self else { return }
-                self.isExcuting = false
                 self.completion?(success)
                 self.receiver?.onComplete(self)
             }

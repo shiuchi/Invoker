@@ -12,37 +12,59 @@ import Invoker
 class ViewController: UIViewController {
 
     let serial = Serial()
-    var image: UIView?
+    var image: TestView?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         image = TestView(frame: CGRect(x: 0, y: 0, width: 100, height: 100))
         view.addSubview(image!)
         
+        // set receiver
+        serial.receiver = self
+        
+        // add command to Serial
         serial.add(CallbackCommand(trace, params: ("a")))
             .add(WaitCommand(1))
             .add(CallbackCommand(trace, params: ("b")))
             .add(WaitCommand(1))
             .add(CallbackCommand(trace, params: ("c")))
         
+        
+        // use short cut
+        serial.call(trace, params: ("d"))
+            .wait(1)
+            .call(trace, params: ("e"))
+        
+        // suspend and resume
+        serial.call({ [weak self] in
+            self?.serial.suspend()
+            DispatchQueue.main.asyncAfter(deadline: .now() + 2, execute: { [weak self] in
+                self?.serial.resume()
+            })
+        }, params: ())
+        
+        // add Parallel to Serial
         let parallel = Parallel()
-        parallel.add(CallbackCommand(trace, params: ("d")))
-        parallel.add(CallbackCommand(trace, params: ("e")))
-        parallel.add(CallbackCommand(trace, params: ("f")))
+        parallel.add(CallbackCommand(trace, params: ("1")))
+        parallel.add(CallbackCommand(trace, params: ("2")))
+        parallel.add(CallbackCommand(trace, params: ("3")))
         serial.add(parallel)
         
-        let animate = AnimateCommand(duration: 0.5, delay:0.5, options: UIView.AnimationOptions.curveEaseIn, animations: {
+        // use AnimateCommand
+        let animate = AnimateCommand(duration: 0.5, delay:0.5, options: .curveEaseIn, animations: {
             self.image?.frame.origin.x = 100
             self.image?.frame.origin.y = 300
             self.image?.backgroundColor = UIColor.blue
         }, completion: { _ in
             self.image?.removeFromSuperview()
+            self.image = nil
         })
         
         serial.add(animate)
-        serial.add(CallbackCommand(trace, params: ("end")))
-        serial.receiver = self
-        serial.execute()
+            .call(trace, params: ("end"))
+            .execute()
+        
+        
     }
     
     func trace(str: String) {

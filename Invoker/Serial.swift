@@ -8,9 +8,13 @@
 
 public final class Serial {
     private var commands: [Command] = []
-    public weak var receiver: CommandReceiver?
+    private var completion: Completion?
+    private var current: Command?
+    
     private(set) public var isExcuting: Bool = false
-    private (set) public var isSuspended: Bool = false
+    private(set) public var isSuspended: Bool = false
+    public var count: Int { return commands.count }
+    public weak var receiver: CommandReceiver?
     
     public init() {
     }
@@ -35,7 +39,8 @@ extension Serial: Command {
     private func _execute() {
         guard isExcuting, !isSuspended else { return }
         
-        if let command = commands.first {
+        if let command = commands.pop() {
+            current = command
             command.receiver = self
             command.execute()
         }
@@ -58,6 +63,8 @@ extension Serial: CommandInvoker {
     public func cancel() {
         isExcuting = false
         commands.removeAll()
+        current = nil
+        receiver = nil
     }
     
     
@@ -75,15 +82,21 @@ extension Serial: CommandInvoker {
         }
     }
     
+    @discardableResult public func completion(_ completion: @escaping Completion) -> Self {
+        self.completion = completion
+        return self
+    }
     
 }
 
 extension Serial: CommandReceiver {
     
     public func onComplete(_ command: Command) {
-        guard isExcuting else { return }
+        guard isExcuting, let current = current, current.id == command.id else {
+            return
+        }
         
-        commands.pop()
+        self.current = nil
         if commands.isEmpty {
             complete()
         } else {
@@ -94,6 +107,7 @@ extension Serial: CommandReceiver {
     private func complete() {
         isExcuting = false
         isSuspended = false
+        completion?(self)
         receiver?.onComplete(self)
     }
 }

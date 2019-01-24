@@ -5,6 +5,7 @@
 //  Created by shiuchi on 2018/12/18.
 //  Copyright © 2018年 shiuchi. All rights reserved.
 //
+import Foundation
 
 public class WaitCommand: Command {
     weak public var receiver: CommandReceiver?

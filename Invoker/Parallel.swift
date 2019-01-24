@@ -9,8 +9,10 @@
 public final class Parallel {
     private var commands: [Command] = []
     private(set) public var isExcuting: Bool = false
-    private (set) public var isSuspended: Bool = false
+    private(set) public var isSuspended: Bool = false
+    public var count: Int { return commands.count }
     public weak var receiver: CommandReceiver?
+    private var completion: Completion?
     
     public init() {
     }
@@ -64,6 +66,11 @@ extension Parallel: CommandInvoker {
     /// Parallel does not support this function
     public func resume() {
     }
+    
+    @discardableResult public func completion(_ completion: @escaping Completion) -> Self {
+        self.completion = completion
+        return self
+    }
 }
 
 extension Parallel: CommandReceiver {
@@ -80,5 +87,6 @@ extension Parallel: CommandReceiver {
     private func complete() {
         isExcuting = false
         receiver?.onComplete(self)
+        completion?(self)
     }
 }

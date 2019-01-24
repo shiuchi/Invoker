@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		9D08D1CE21C8D1BA0058E5BB /* Invoker.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9D08D1C421C8D1B90058E5BB /* Invoker.framework */; };
-		9D08D1D321C8D1BA0058E5BB /* InvokerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D08D1D221C8D1BA0058E5BB /* InvokerTests.swift */; };
 		9D08D1D521C8D1BA0058E5BB /* Invoker.h in Headers */ = {isa = PBXBuildFile; fileRef = 9D08D1C721C8D1B90058E5BB /* Invoker.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		9D08D1DF21C8D1E40058E5BB /* Invoker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D08D1DE21C8D1E40058E5BB /* Invoker.swift */; };
 		9D08D1E121C8D2150058E5BB /* Serial.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D08D1E021C8D2150058E5BB /* Serial.swift */; };
@@ -22,6 +21,14 @@
 		9D08D22D21C8DC810058E5BB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9D08D22B21C8DC810058E5BB /* LaunchScreen.storyboard */; };
 		9D08D23321C8DCA30058E5BB /* Invoker.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9D08D1C421C8D1B90058E5BB /* Invoker.framework */; };
 		F4EFB25121E8729900173ED4 /* AnimateCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4EFB25021E8729900173ED4 /* AnimateCommand.swift */; };
+		F4EFB25221F6ED0600173ED4 /* Invoker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D08D1DE21C8D1E40058E5BB /* Invoker.swift */; };
+		F4EFB25321F6ED1100173ED4 /* Serial.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D08D1E021C8D2150058E5BB /* Serial.swift */; };
+		F4EFB25621F6F26700173ED4 /* Parallel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D08D1E221C8D2380058E5BB /* Parallel.swift */; };
+		F4EFB25721F6F26A00173ED4 /* WaitCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D08D1E421C8D5380058E5BB /* WaitCommand.swift */; };
+		F4EFB25821F6F26D00173ED4 /* CallbackCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D08D1E621C8D5CD0058E5BB /* CallbackCommand.swift */; };
+		F4EFB25921F6F27000173ED4 /* AnimateCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4EFB25021E8729900173ED4 /* AnimateCommand.swift */; };
+		F4EFB25B21F72B7200173ED4 /* SerialTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4EFB25A21F72B7200173ED4 /* SerialTest.swift */; };
+		F4EFB26221F9E8CA00173ED4 /* ParallelTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4EFB26121F9E8CA00173ED4 /* ParallelTest.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -32,6 +39,13 @@
 			remoteGlobalIDString = 9D08D1C321C8D1B90058E5BB;
 			remoteInfo = Invoker;
 		};
+		F4EFB25421F6F1F100173ED4 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 9D08D1BB21C8D1B90058E5BB /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 9D08D21F21C8DC800058E5BB;
+			remoteInfo = InvokerDemo;
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
@@ -39,7 +53,6 @@
 		9D08D1C721C8D1B90058E5BB /* Invoker.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Invoker.h; sourceTree = "<group>"; };
 		9D08D1C821C8D1B90058E5BB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9D08D1CD21C8D1BA0058E5BB /* InvokerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = InvokerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		9D08D1D221C8D1BA0058E5BB /* InvokerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InvokerTests.swift; sourceTree = "<group>"; };
 		9D08D1D421C8D1BA0058E5BB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9D08D1DE21C8D1E40058E5BB /* Invoker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Invoker.swift; sourceTree = "<group>"; };
 		9D08D1E021C8D2150058E5BB /* Serial.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Serial.swift; sourceTree = "<group>"; };
@@ -54,6 +67,8 @@
 		9D08D22C21C8DC810058E5BB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		9D08D22E21C8DC810058E5BB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F4EFB25021E8729900173ED4 /* AnimateCommand.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimateCommand.swift; sourceTree = "<group>"; };
+		F4EFB25A21F72B7200173ED4 /* SerialTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SerialTest.swift; sourceTree = "<group>"; };
+		F4EFB26121F9E8CA00173ED4 /* ParallelTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParallelTest.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -122,8 +137,9 @@
 		9D08D1D121C8D1BA0058E5BB /* InvokerTests */ = {
 			isa = PBXGroup;
 			children = (
-				9D08D1D221C8D1BA0058E5BB /* InvokerTests.swift */,
 				9D08D1D421C8D1BA0058E5BB /* Info.plist */,
+				F4EFB25A21F72B7200173ED4 /* SerialTest.swift */,
+				F4EFB26121F9E8CA00173ED4 /* ParallelTest.swift */,
 			);
 			path = InvokerTests;
 			sourceTree = "<group>";
@@ -192,6 +208,7 @@
 			);
 			dependencies = (
 				9D08D1D021C8D1BA0058E5BB /* PBXTargetDependency */,
+				F4EFB25521F6F1F100173ED4 /* PBXTargetDependency */,
 			);
 			name = InvokerTests;
 			productName = InvokerTests;
@@ -302,7 +319,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9D08D1D321C8D1BA0058E5BB /* InvokerTests.swift in Sources */,
+				F4EFB25721F6F26A00173ED4 /* WaitCommand.swift in Sources */,
+				F4EFB25921F6F27000173ED4 /* AnimateCommand.swift in Sources */,
+				F4EFB25221F6ED0600173ED4 /* Invoker.swift in Sources */,
+				F4EFB25B21F72B7200173ED4 /* SerialTest.swift in Sources */,
+				F4EFB25821F6F26D00173ED4 /* CallbackCommand.swift in Sources */,
+				F4EFB25321F6ED1100173ED4 /* Serial.swift in Sources */,
+				F4EFB25621F6F26700173ED4 /* Parallel.swift in Sources */,
+				F4EFB26221F9E8CA00173ED4 /* ParallelTest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -322,6 +346,11 @@
 			isa = PBXTargetDependency;
 			target = 9D08D1C321C8D1B90058E5BB /* Invoker */;
 			targetProxy = 9D08D1CF21C8D1BA0058E5BB /* PBXContainerItemProxy */;
+		};
+		F4EFB25521F6F1F100173ED4 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 9D08D21F21C8DC800058E5BB /* InvokerDemo */;
+			targetProxy = F4EFB25421F6F1F100173ED4 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -381,6 +410,7 @@
 				COPY_PHASE_STRIP = NO;
 				CURRENT_PROJECT_VERSION = 1;
 				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEFINES_MODULE = YES;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
@@ -445,6 +475,7 @@
 				COPY_PHASE_STRIP = NO;
 				CURRENT_PROJECT_VERSION = 1;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEFINES_MODULE = YES;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
@@ -523,6 +554,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
+				DEFINES_MODULE = NO;
 				INFOPLIST_FILE = InvokerTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -541,6 +573,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
+				DEFINES_MODULE = NO;
 				INFOPLIST_FILE = InvokerTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

@@ -5,6 +5,8 @@
 //  Created by shiuchi on 2018/12/18.
 //  Copyright © 2018年 shiuchi. All rights reserved.
 //
+import UIKit
+import Foundation
 
 public protocol Command: class {
     func execute()
@@ -19,12 +21,14 @@ public extension Command {
 }
 
 public protocol CommandReceiver: class {
+    typealias Completion = (Command) -> Void
     func onComplete(_ command: Command)
 }
 
 public protocol CommandInvoker {
     var isExcuting: Bool { get }
     var isSuspended: Bool { get }
+    var count: Int { get }
     @discardableResult func add(_ command: Command) -> Self
     @discardableResult func add(_ commands: [Command]) -> Self
     
